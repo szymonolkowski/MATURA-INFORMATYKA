@@ -1,7 +1,8 @@
 # BRUTE FORCE METHOD
 def return_divisors(int_number):
-    divisors = list(filter(lambda i: (int_number % i == 0), list(range(2, int_number))))
-    return divisors
+    return list(
+        filter(lambda i: (int_number % i == 0), list(range(2, int_number)))
+    )
 
 with open("liczby.txt", "r") as file:
     # PREPARE DATA
@@ -14,7 +15,7 @@ with open("liczby.txt", "r") as file:
     max_divisor = None
 
     # FIND ALL DIVISORS
-    all_divisors = list()
+    all_divisors = []
     for number in numbers:
         number = int(number)
         all_divisors.extend(return_divisors(number))

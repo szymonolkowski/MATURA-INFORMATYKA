@@ -11,17 +11,12 @@ def czy_k_podobne(n, A, B, k):
         if A[i] != B[n - k + i]:
             return False
 
-    for i in range(n - k):
-        if B[i] != A[k + i]:
-            return False
-    return True
+    return all(B[i] == A[k + i] for i in range(n - k))
 
 
 def czy_podobne(n, A, B):
     for k in range(n):
-        if czy_k_podobne(n, A, B, k):
-            return True
-        return False
+        return bool(czy_k_podobne(n, A, B, k))
 
 
 print(czy_k_podobne(n, A, B, k))
